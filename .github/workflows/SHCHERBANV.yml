@@ -1,6 +1,8 @@
 name: CI - ${{ github.actor }}
 on:
-  pull_request:
+  push:
+    branches:
+      - main
   
 jobs:
   GitHub-task-job:
@@ -8,7 +10,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2 
+        uses: actions/checkout@v2
 
       - name: Display GITHUB_ACTIONS environment variable
         run: echo "GITHUB_ACTIONS=$GITHUB_ACTIONS"
