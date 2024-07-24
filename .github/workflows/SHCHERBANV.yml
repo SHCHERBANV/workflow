@@ -1,41 +1,23 @@
-# Name of the workflow, including the username of the person who initiated the workflow run
 name: CI - ${{ github.actor }}
-
-# The name of the run, which will appear in the GitHub Actions tab
-run-name: ${{ github.actor }} testing GitHub Actions
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on pull request events
   pull_request:
-
-# Set a workflow-level environment variable
-env:
-  GITHUB_ACTIONS: true
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+  
 jobs:
-  # Define a job named 'github-task-job'
-  github-task-job:
-    # The type of runner that the job will run on (latest version of Ubuntu)
+  GitHub-task-job:
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks to be executed
     steps:
-      # Step to checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      # Step to display the GITHUB_ACTIONS environment variable
       - name: Display GITHUB_ACTIONS environment variable
         run: echo "GITHUB_ACTIONS=$GITHUB_ACTIONS"
 
-      # Step to show the name of the branch and repository
       - name: Show branch and repository name
         run: |
           echo "Branch: ${{ github.ref }}"
           echo "Repository: ${{ github.repository }}"
 
-      # Step to display the event that initiated the workflow run
       - name: Display event that initiated the workflow run
-        run: echo "Event: ${{ github.event_name }}"
+        run: |
+          echo "Event: ${github.event_name}"
