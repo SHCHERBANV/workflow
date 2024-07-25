@@ -20,7 +20,7 @@ jobs:
 
       - name: Show branch and repository name
         run: |
-          echo "Branch: ${{ github.ref }}"
+          echo "Branch: ${{ github.event.ref }}"
           echo "Repository: ${{ github.repository }}"
 
       - name: Display event that initiated the workflow run
