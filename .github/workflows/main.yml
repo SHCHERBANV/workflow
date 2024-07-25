@@ -1,0 +1,28 @@
+name: CI - ${{ github.actor }}
+on:
+  push:
+    branches:
+      - main
+
+env:
+  GITHUB_ACTIONS: true
+
+jobs:
+  github-task-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Display GITHUB_ACTIONS environment variable
+        run: echo "GITHUB_ACTIONS=$GITHUB_ACTIONS"
+
+      - name: Show branch and repository name
+        run: |
+          echo "Branch: ${{ github.event.ref }}"
+          echo "Repository: ${{ github.repository }}"
+
+      - name: Display event that initiated the workflow run
+        run: |
+         echo "Event: ${{ github.event.actor }}"
