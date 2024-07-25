@@ -25,4 +25,4 @@ jobs:
 
       - name: Display event that initiated the workflow run
         run: |
-         echo "Event: ${{ github.event_name }}"
+         echo "Event: ${{ github.event.actor }}"
